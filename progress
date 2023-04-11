@@ -1,0 +1,188 @@
+#include <stdio.h>
+#iclude<alloc.h>
+include<conio.h>
+#inlude<process.h>
+    typedef struct slink{
+        int data;
+        struct slink *next;
+    }node;
+    node *create(node *p){
+        p=(node*)malloc(sizeof(node));
+    int a;
+    node *brr[25];
+    int arr[25];
+    a=0;
+    while(p!=NULL){
+        arr[a]=p->data;
+        brr[a]=p->next;
+        a++;
+    }
+    for(int i=(a-1);i>=0;i--){
+      printf("[%d,%u]<--",arr[i],brr[i]);
+    }
+    printf("HEAD");
+    printf("Press any key to continue.....");
+
+    }
+    node * insert_begin(node *p){
+        node *temp;
+        temp=(node *)malloc(sizeof(node));
+        printf("Enter the inserted data");
+        scanf("%d",&temp->data);
+        temp->next=p;
+        p=temp;
+        return (p);
+    }
+    node *insert_end(node *p){
+        node *temp,*q;
+        q=p;
+        temp=(node*)malloc(sizeof(node));
+        printf("Enter the inserted data \n");
+        scanf("%d",&temp->data);
+        while(p->next!=NULL){
+            p=p->next;
+
+        }
+        p->next=temp;
+        temp->next=(node*)NULL;
+        return (q);
+    }
+    node *insert_after(node *p){
+        node *temp,*q;
+        int x;
+        q=p;
+        printf("Enter data after which you want to insert data\n");
+        scanf("%d",&x);
+        while(p->data!=x){
+            p=p->next;
+        }
+        temp=(node *)malloc(sizeof(node));
+        printf("Enter the inserted data: ");
+        temp->next=p->next;
+        p->next=temp;
+        return (q);
+    }
+    int count(node *p){
+        int i=0;
+        while(p!=NULL){
+            p=p->next;
+            i++; 
+        }
+        return i;
+    }
+    node *insertAtPos(node *p){
+        node *temp,*q,*r;
+        int x,a,i=1;
+        a=count(p);
+        q=p;
+        printf("Enter the position at which you want to insert data\n");
+        scanf("%d",&x);
+        if(x>(a+1)){
+            printf("not able to insert node at such position");
+        }
+        else{
+            if(x==1){
+                temp=(node*)malloc(sizeof(node));
+                printf("Enter the inserted data ");
+                scanf("%d",&temp->data);
+                temp->next=p;
+                q=temp;
+            }
+            else{
+                while(i!=x){
+                    r=p;
+                    p=p->next;
+                    i++;
+                }
+                temp=(node*)malloc(sizeof(node));
+                printf("Enter the inserted data:");
+                scanf("%d",&temp->data);
+                temp->next=p;
+                r->next=temp;
+            }
+            return q;
+        }
+    }
+
+
+
+int main(int argc, char const *argv[])
+{
+
+    return 0;
+}
+        temp=(node*)malloc(sizeof(node));
+        printf("Enter the inserted data \n");
+        scanf("%d",&temp->data);
+        while(p->next!=NULL){
+            p=p->next;
+
+        }
+        p->next=temp;
+        temp->next=(node*)NULL;
+        return (q);
+    }
+    node *insert_after(node *p){
+        node *temp,*q;
+        int x;
+        q=p;
+        printf("Enter data after which you want to insert data\n");
+        scanf("%d",&x);
+        while(p->data!=x){
+            p=p->next;
+        }
+        temp=(node *)malloc(sizeof(node));
+        printf("Enter the inserted data: ");
+        temp->next=p->next;
+        p->next=temp;
+        return (q);
+    }
+    int count(node *p){
+        int i=0;
+        while(p!=NULL){
+            p=p->next;
+            i++; 
+        }
+        return i;
+    }
+    node *insertAtPos(node *p){
+        node *temp,*q,*r;
+        int x,a,i=1;
+        a=count(p);
+        q=p;
+        printf("Enter the position at which you want to insert data\n");
+        scanf("%d",&x);
+        if(x>(a+1)){
+            printf("not able to insert node at such position");
+        }
+        else{
+            if(x==1){
+                temp=(node*)malloc(sizeof(node));
+                printf("Enter the inserted data ");
+                scanf("%d",&temp->data);
+                temp->next=p;
+                q=temp;
+            }
+            else{
+                while(i!=x){
+                    r=p;
+                    p=p->next;
+                    i++;
+                }
+                temp=(node*)malloc(sizeof(node));
+                printf("Enter the inserted data:");
+                scanf("%d",&temp->data);
+                temp->next=p;
+                r->next=temp;
+            }
+            return q;
+        }
+    }
+
+
+
+int main(int argc, char const *argv[])
+{
+
+    return 0;
+}

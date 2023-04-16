@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include<stdlib.h>
+typedef struct node{
+    int data;
+    struct node*next;
+}NODE;
+int main() {
+    NODE *head , *newnode , *temp;
+    int choice=1,count=1,i=1;
+    int pos;
+    head=NULL;
+    while(choice){
+    newnode= (NODE*)malloc(sizeof(NODE));
+    printf("enter data");
+    scanf("%d",&newnode->data);
+     newnode->next=NULL;
+     if(head==NULL){
+         head=temp=newnode;
+     }
+     else{
+         temp->next=newnode;
+         temp=newnode;
+     }
+     printf("for more 1 otherwise 0");
+     scanf("%d",&choice);
+    }
+    temp=head;
+    while (temp!=NULL){
+       // printf("%d ,",temp->data);
+        temp=temp->next;
+        count++;
+    }
+    choice =1;
+    while(choice){
+        printf("enter location to insert");
+        scanf("%d",&pos);
+        if(pos>count){
+            printf("error");
+        }
+        else{
+            temp=head;
+            i=1;
+            while(pos>i){
+                temp=temp->next;
+                i++;
+        }
+        newnode= (NODE*)malloc(sizeof(NODE));
+        printf("enter data");
+        scanf("%d",&newnode->data);
+        newnode->next=temp->next;
+        temp->next=newnode;
+    }
+     printf("for more 1 otherwise 0");
+     scanf("%d",&choice);
+    }
+     temp=head;
+    while (temp!=NULL){
+       printf("%d ,",temp->data);
+        temp=temp->next;
+       
+    }
+    return 0;
+}

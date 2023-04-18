@@ -1,188 +1,317 @@
+// Online C compiler to run C program online
 #include <stdio.h>
-#iclude<alloc.h>
-include<conio.h>
-#inlude<process.h>
-    typedef struct slink{
-        int data;
-        struct slink *next;
-    }node;
-    node *create(node *p){
-        p=(node*)malloc(sizeof(node));
-    int a;
-    node *brr[25];
-    int arr[25];
-    a=0;
-    while(p!=NULL){
-        arr[a]=p->data;
-        brr[a]=p->next;
-        a++;
-    }
-    for(int i=(a-1);i>=0;i--){
-      printf("[%d,%u]<--",arr[i],brr[i]);
-    }
-    printf("HEAD");
-    printf("Press any key to continue.....");
 
-    }
-    node * insert_begin(node *p){
-        node *temp;
-        temp=(node *)malloc(sizeof(node));
-        printf("Enter the inserted data");
-        scanf("%d",&temp->data);
-        temp->next=p;
-        p=temp;
-        return (p);
-    }
-    node *insert_end(node *p){
-        node *temp,*q;
-        q=p;
-        temp=(node*)malloc(sizeof(node));
-        printf("Enter the inserted data \n");
-        scanf("%d",&temp->data);
-        while(p->next!=NULL){
-            p=p->next;
-
-        }
-        p->next=temp;
-        temp->next=(node*)NULL;
-        return (q);
-    }
-    node *insert_after(node *p){
-        node *temp,*q;
-        int x;
-        q=p;
-        printf("Enter data after which you want to insert data\n");
-        scanf("%d",&x);
-        while(p->data!=x){
-            p=p->next;
-        }
-        temp=(node *)malloc(sizeof(node));
-        printf("Enter the inserted data: ");
-        temp->next=p->next;
-        p->next=temp;
-        return (q);
-    }
-    int count(node *p){
-        int i=0;
+typedef struct simplelink{
+    int data;
+    struct simplelink *next;
+}node;
+node *create(node *p)
+{
+    p=(node *)malloc(sizeof(node));
+    {
+        int a;
+        printf("\n\n");
+        node *brr[25];
+        int arr[25];
+        a=0;
         while(p!=NULL){
+            arr[a]=p->data;
+            brr[a]=p->next;
             p=p->next;
-            i++; 
+            a++;
         }
-        return i;
-    }
-    node *insertAtPos(node *p){
-        node *temp,*q,*r;
-        int x,a,i=1;
-        a=count(p);
-        q=p;
-        printf("Enter the position at which you want to insert data\n");
-        scanf("%d",&x);
-        if(x>(a+1)){
-            printf("not able to insert node at such position");
+        for(int i=(a-1);i>=0;i--){
+            printf("[%d,%d]<--",arr[i],brr[i]);
+            printf("HEAD");
+            printf("\n\n\nPress any key");
+            getch();
         }
-        else{
-            if(x==1){
-                temp=(node*)malloc(sizeof(node));
-                printf("Enter the inserted data ");
-                scanf("%d",&temp->data);
-                temp->next=p;
-                q=temp;
+        node *insert_begin(node *p){
+            node *temp;
+            temp=(node *)malloc(sizeof(node));
+            printf("\nEnter the inserted data:");
+            scanf("%d",&temp->data);
+            temp->next=p;
+            p=temp;
+            return (p);
+        }
+        node *insert_end(node  *p){
+            node *temp,*q;
+            q=p;
+            temp=(node*)malloc(sizeof(node));
+            printf("\nEnter the data:");
+            scanf("%d",&temp->data);
+            while(p->next!=NULL){
+                p=p->next;
             }
-            else{
-                while(i!=x){
-                    r=p;
+            p->next=temp;
+            temp->next=(node *)NULL;
+            return(q);
+            }
+            node *insert_after(node *p){
+                node *temp,*q;
+                int x;
+                q=p
+                printf("\nEnter the data:");
+                scanf("%d",&temp->data);
+                temp->next=p->next;
+                p->next=temp;
+                return (q);
+            }
+            int count(node *p){
+                int i=0;
+                while(p!=NULL){
                     p=p->next;
                     i++;
                 }
-                temp=(node*)malloc(sizeof(node));
-                printf("Enter the inserted data:");
-                scanf("%d",&temp->data);
-                temp->next=p;
-                r->next=temp;
-            }
-            return q;
-        }
+                return (i);
+                }
+                node *insert_art_spe_pos(node *p){
+                    node *temp,*q,*r;
+                    int x,a,i=1;
+                    a=count(p);
+                    q=p;
+                    printf("\nEnter the position:");
+                    scanf("%d",&x);
+                    if(x>(a+1)){
+                        printf("\nNot able to insert node at such position:-");
+                        getch();
+                        
+                    }
+                    else{
+                        if(x==1){
+                              temp=(node*)malloc(sizeof(node));
+                               printf("\nEnter the data:");
+            scanf("%d",&temp->data);
+            r->next=temp;
+                        }
+                    }
+                    return (q);
+                }
+                node *delend(node *p){
+                    node *q,*r;
+                    r=p;
+                    q=p;
+                    if(p->next==NULL){
+                        r=(node *)NULL
+                    }
+                    else{
+                        while(p->next!=NULL){
+                        q=p;
+                        p=p->next;
+                    }
+                    q->next=(node *)NULL;
+                        
+                    
+                    }
+                    free(p);
+                    return (r);
+                        }
+                        node *del_speci_ele(node *p){
+                            node *q,*r;
+                            int x;
+                            q=p;
+                            r=p;
+                            printf("\nEnter the data to remove:-");
+                            scanf("%d",&x);
+                            while(q->data!=x){
+                                r=p;
+                                q=q->next;
+                            }
+                            if(q==r)
+                                p=p->next;
+                            
+                            else
+                                r->next=q->next;
+                                free(q);
+                                return (p);
+                            
+                        
+                        }
+                        node *delbegin(node *p){
+                            node *q;
+                            q=p;
+                            p=p->next;
+                            free(q);
+                            return(p);
+                        }
+                        node *delete_after(node *p){
+                            node *temp,*q;
+                            int x;
+                            q=p;
+                            printf("\nEnter the data:");
+                            scanf("%d",&x);
+                            while(p->data!=x){
+                                p=p->next;
+                            }
+                            temp=p->next;
+                            p->next=temp->next;
+                            free(temp);
+                            return(q);
+                        }
+                        node *delete_at_spe_pos(node *p){
+                            node *temp,*q,*r;
+                            int x,a,i=1;
+                            a=count(p);
+                            q=p;
+                            printf("Enter the Position:-");
+                            scanf("%d",&x);
+                            if(x>(a)){
+                                printf("\nNot able to remove node at such position:-");
+                                getch();
+                            }
+                            else{
+                                if(x==1){
+                                    q=q->next;
+                                    free(p);
+                                }
+                                else{
+                                    while(i!=x){
+                                        r=p;
+                                        p=p->next;
+                                        i++;
+                                    }
+                                    r->next=p->next;
+                                    free(p);
+                                }
+                            }
+                            return(q);
+                        }
+                        void sreen(node *head){
+                            clrscr();
+                            int ch,a;
+                            printf("\t\t\t    SINGLE LINEAR LINKED LIST");
+                            printf("\n\t\t\t***********************");
+                            printf("\n\n    Option are");
+                            printf("\n~~~~~~~~~~~~~~~~");
+                            printf("\n\n  0 EXIT");
+                            printf("\n\n 1 Create first node");
+                            printf("\n\n 2 Insert at begining");
+                            printf("\n\n 3 Insert at end ");
+                            printf("\n\n Insert after element");
+                            printf("\n\n Insert at specific position");
+                            printf("\n\n 6 Delete at end ");
+                            printf("\n\n 7 Delete at begining ");
+                            printf("\n\n 8 Delete afte element ");
+                            printf("\n\n 9 Delete specific element ");
+                            printf("\n\n 10 Delete element from specific position");
+                            printf("\n\n 11 Traverse in order(Display) ");
+                             printf("\n\n 12 Traverse in reverse order ");
+                              printf("\n\n 13 Count no.of node ");
+                               printf("\n\n 14 reverse linked list ");
+                                printf("\n\n--------------------------------------------- ");
+                                 printf("\n\n Enter your choice:- ");
+                                 scanf("%d",&ch);
+                                 printf("\n------------------------------------------------------------");
+                                 switch(ch){
+                                     case 0:
+                                               exit(0);
+                                 }
+                                 case 1:
+                                 head=create(head);
+                                 break;
+                                 
+                                 case 2:
+                                 head=insert_begin(head);
+                                 break;
+                                 
+                                 case 3:
+                                 head=insert_end(head);
+                                 break;
+                                 
+                                 case 4:
+                                 head=insert_after(head);
+                                 break;
+                                 
+                                 case 5:
+                                 head=insert_at_spe_pos(head);
+                                 break;
+                                 
+                                 case 6:
+                                 head=delend(head);
+                                 break;
+                                 
+                                 case 7:
+                                 head=delbegin(head);
+                                 break;
+                                 
+                                 case 8:
+                                 head=delete_after(head);
+                                 break;
+                                 
+                                 case 9:
+                                 head=del_speci_ele(head);
+                                 break;
+                                 
+                                 case 10:
+                                 head=delete_at_spe_pos(head);
+                                 break;
+                                 
+                                 case 11:
+                                 display(head);
+                                 break;
+                                 
+                                 case 12:
+                                 revdisplay(head);
+                                 break;
+                                 
+                                 case 13:
+                                 a=count(head);
+                                 printf("The no.of node is:-%d",a);
+                                 printf("\n\n\nPress any key to continue");
+                                 getch();
+                                 break;
+                                 
+                                  case 14:
+                                 head=reverse(head);
+                                 break;
+                                 
+                                  default:
+                                 printf("please Enter the right choice:-");
+                             break;
+                        }
+                        screen(head);
     }
-
-
-
-int main(int argc, char const *argv[])
-{
-
-    return 0;
+    void main(){
+        clrscr();
+        node *head;
+        head=(node *)NULL;
+        screen(head);
+        getche();
+    }
+    printf("Enter data");
+    scanf("%d",&p->data);
+    p->next=(node *)NULL;
+    return(p);
 }
-        temp=(node*)malloc(sizeof(node));
-        printf("Enter the inserted data \n");
-        scanf("%d",&temp->data);
-        while(p->next!=NULL){
-            p=p->next;
-
-        }
-        p->next=temp;
-        temp->next=(node*)NULL;
-        return (q);
+void display(node *p){
+    printf("\n\n");
+    while(p!=NULL){
+        printf("[%d,%u]-->",p->data,p->next);
+        p=p->next;
     }
-    node *insert_after(node *p){
-        node *temp,*q;
-        int x;
-        q=p;
-        printf("Enter data after which you want to insert data\n");
-        scanf("%d",&x);
-        while(p->data!=x){
-            p=p->next;
-        }
-        temp=(node *)malloc(sizeof(node));
-        printf("Enter the inserted data: ");
-        temp->next=p->next;
-        p->next=temp;
-        return (q);
+    printf("NULL");
+    printf("\n\nPresss any key");
+    getch();
+}
+void revdisplay(node *p);
     }
-    int count(node *p){
-        int i=0;
-        while(p!=NULL){
-            p=p->next;
-            i++; 
-        }
-        return i;
+}
     }
-    node *insertAtPos(node *p){
-        node *temp,*q,*r;
-        int x,a,i=1;
-        a=count(p);
-        q=p;
-        printf("Enter the position at which you want to insert data\n");
-        scanf("%d",&x);
-        if(x>(a+1)){
-            printf("not able to insert node at such position");
-        }
-        else{
-            if(x==1){
-                temp=(node*)malloc(sizeof(node));
-                printf("Enter the inserted data ");
-                scanf("%d",&temp->data);
-                temp->next=p;
-                q=temp;
-            }
-            else{
-                while(i!=x){
-                    r=p;
-                    p=p->next;
-                    i++;
+                                 
+                                 
+                                
+                                 printf("")
+                            
+                            
+                    
+                        }
+                        }
+                        
+                    }
                 }
-                temp=(node*)malloc(sizeof(node));
-                printf("Enter the inserted data:");
-                scanf("%d",&temp->data);
-                temp->next=p;
-                r->next=temp;
             }
-            return q;
         }
     }
-
-
-
-int main(int argc, char const *argv[])
-{
-
-    return 0;
+}
 }

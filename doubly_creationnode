@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+typedef struct node{
+struct node *prev;
+int data;
+struct node *next;
+}NODE;
+NODE *newnode;
+void main(){
+NODE *head,*tail;
+tail=head=NULL;
+
+newnode= (NODE*)malloc(sizeof(NODE));
+clrscr();
+printf("enter the data in node ");
+scanf("%d",&newnode->data);
+newnode->next=NULL;
+head=newnode;
+tail=newnode;
+while(head!=NULL){
+printf("%d",head->data);
+head= head->next;
+}
+getche();
+}

@@ -1,0 +1,34 @@
+#include<stdlib.h>
+#include <stdio.h>
+typedef struct node{
+    int data;
+    struct node*next;
+}NODE;
+int main() {
+    NODE *head=NULL;
+    NODE *newnode,*newnode1,*temp;
+    newnode= (NODE*)malloc(sizeof(NODE));
+    printf("enter data");
+    scanf("%d",&newnode->data);
+    newnode->next=NULL;
+    if(head==NULL){
+        head=temp=newnode;
+    }
+    else{
+        temp->next=newnode;
+        temp=newnode;
+    }
+    newnode1= (NODE*)malloc(sizeof(NODE));
+    printf("enter data");
+    scanf("%d",&newnode1->data);
+    newnode->next=NULL;
+    if(head==NULL){
+        head=temp=newnode;
+    }
+    else{
+        temp->next=newnode;
+        temp=newnode;
+    }   
+      printf("%d", newnode->data+newnode1->data)  ;
+    return 0;
+}

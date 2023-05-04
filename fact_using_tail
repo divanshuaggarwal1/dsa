@@ -1,0 +1,15 @@
+#include <stdio.h>
+int fact(int,int);
+int main() {
+    int n;
+    printf("enter the value of n");
+    scanf("%d",&n);
+    printf("value is %d",fact(n,1));
+    return 0;
+}
+int fact(int n, int initial){
+    if(n<=0){
+        return initial;
+    }
+        return fact(n-1,n*initial);
+}

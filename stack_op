@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+void push();
+void pop();
+
+int n = 5;
+int stack[5];
+int top = -1;
+int x;
+
+int main() {
+    int choice;
+    printf("Enter element: ");
+    scanf("%d", &x);
+    printf("Enter choice (1 for push, 2 for pop): ");
+    scanf("%d", &choice);
+    switch(choice){
+        case 1:
+            push();
+            break;
+        case 2:
+            pop();
+            break;
+        default:
+            printf("Invalid choice");
+            break;
+    }
+    return 0;
+}
+
+void push() {
+    if(top == n-1) {
+        printf("Stack overflow");
+    }
+    else {
+        top++;
+        stack[top] = x;
+        printf("%d", stack[top]);
+    }
+}
+
+void pop() {
+    if(top == -1) {
+        printf("Stack underflow");
+    }
+    else {
+        printf("%d", stack[top]);
+        top--;
+    }
+}
